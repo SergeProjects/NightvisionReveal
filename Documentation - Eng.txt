@@ -1,0 +1,152 @@
+Main Menu
+Maps
+
+Content/Maps/MainMenu — main menu map.
+Content/Maps/Overview — demo/overview map for the pack.
+
+UI (Widgets)
+
+Content/Widgets/MainMenu-WG — main menu widget (New Game / Credits / Exit).
+Content/Widgets/Credits-WG — credits screen widget.
+
+Button behavior
+
+New Game: opens the Overview map.
+Credits: opens the Credits-WG widget.
+Exit: closes the game.
+
+----------------------------------------------------------------------------------------------------------------------
+Interact System (Inspect)
+Location
+
+Blueprints: Content/Blueprints/
+Settings/helpers: Content/Others/
+
+Main Blueprint
+
+InspectMaster_BP
+
+Create an inspectable item
+
+Right-click InspectMaster_BP → Create Child Blueprint Class
+Use the created Child Blueprint as the new inspectable item for your project.
+
+Item setup (Details)
+
+In the Child Blueprint, set in Details:
+- Static Mesh: set the item mesh to be inspected.
+- Item Description: configure the item Name and Description.
+
+Widget used
+
+ItemDescription-WG — widget that displays the item information during inspection.
+
+----------------------------------------------------------------------------------------------------------------------
+Sprint System
+Location / File
+
+Blueprint: Content/Blueprints/HR_Character_BP
+
+Where to configure
+
+Sprint settings are inside HR_Character_BP (the project main Character).
+
+----------------------------------------------------------------------------------------------------------------------
+Door Open System
+Location / File
+
+Blueprint: Content/Blueprints/Others/Door_BP
+
+----------------------------------------------------------------------------------------------------------------------
+Footsteps System
+Audio (Sound Cues)
+
+Content/Sounds/Footsteps/ — footstep Sound Cues for each Surface.
+
+Surfaces (Project Settings)
+
+Project Settings → Engine → Physics — add/edit Physical Surfaces.
+
+Physical Materials
+
+Content/Sounds/PhysicalMaterials/ — Physical Materials used for each Surface.
+
+Character configuration
+
+Content/Blueprints/HR_Character_BP — Surface setup/mapping used to play the correct footstep sounds.
+
+----------------------------------------------------------------------------------------------------------------------
+Interact System
+Enable interaction on a Blueprint
+
+On the Blueprint you want to interact with:
+- Open Class Settings
+- In Details → Interfaces → Implemented Interfaces, add: HR_InteractInterface
+
+Interaction event
+
+On the same Blueprint, add the Event Interact node (the interface event that gets called).
+
+Example
+
+Content/Blueprints/Others/Test_BP — example implementation of the interaction system.
+
+General settings
+
+Content/Blueprints/HR_Character_BP — main Interact System settings.
+
+----------------------------------------------------------------------------------------------------------------------
+Health System
+Main Blueprint (logic)
+
+Content/Blueprints/BPC_Health — configures:
+- Health logic
+- Max Health
+- damage and healing logic
+- death logic/death widget
+
+Death widget
+
+Content/Widgets/Dead-WG — death effect widget.
+
+Examples (damage and healing)
+
+Content/Blueprints/Others/DamageFloor_BP — damage example.
+Content/Blueprints/Others/Heal25Damage — healing example.
+
+----------------------------------------------------------------------------------------------------------------------
+Flashlight System
+Character configuration
+
+Content/Blueprints/HR_Character_BP — flashlight setup (toggle) and position on the character.
+
+Flashlight Blueprint
+
+Content/Blueprints/Others/Flashlight_BP — mesh setup and other flashlight actor settings.
+
+----------------------------------------------------------------------------------------------------------------------
+Grab Boxes System
+System logic
+
+Content/Blueprints/HR_Character_BP — contains the logic to grab/hold boxes.
+
+Make an object grabbable
+
+- Place a Static Mesh (or an actor with a mesh/box) in the level.
+- In the component Details, enable Simulate Physics.
+
+----------------------------------------------------------------------------------------------------------------------
+Screen Tips System
+Widgets (tips)
+
+Content/Widgets/Tips/ — widgets used for on-screen tips.
+
+Activation Blueprint
+
+Content/Blueprints/Others/TipsBP — blueprint used to trigger/show the tips on screen.
+
+----------------------------------------------------------------------------------------------------------------------
+Monster IA System
+Location / Configuration
+
+Content/Blueprints/Others/Monster — contains the monster mesh setup and Monster AI logic.

@@ -1,0 +1,162 @@
+Main Menu
+Mapas
+
+Content/Maps/MainMenu — mapa do menu principal.
+
+Content/Maps/Overview — mapa de demonstração/visão geral do pack.
+
+UI (Widgets)
+
+Content/Widgets/MainMenu-WG — widget do menu principal (New Game / Credits / Exit).
+
+Content/Widgets/Credits-WG — widget da tela de créditos.
+
+Comportamento dos botões
+
+New Game: abre o mapa Overview.
+
+Credits: abre o widget Credits-WG.
+
+Exit: fecha o jogo.
+
+----------------------------------------------------------------------------------------------------------------------
+Interact System (Inspect)
+Localização
+
+Blueprints: Content/Blueprints/
+
+Configurações/auxiliares: Content/Others/
+
+Blueprint principal
+
+InspectMaster_BP
+
+Criar um item inspecionável
+
+Clique com o botão direito em InspectMaster_BP → Create Child Blueprint Class
+
+Use o Child Blueprint criado como o “novo item” inspecionável do seu projeto.
+
+Configuração do item (Details)
+
+No Child Blueprint, ajuste em Details:
+
+Static Mesh: defina a malha do item a ser inspecionado.
+
+Item Description: configure Nome e Descrição do item.
+
+Widget usado
+
+ItemDescription-WG — widget que exibe as informações do item durante a inspeção.
+
+
+----------------------------------------------------------------------------------------------------------------------
+Sprint System
+Localização / Arquivo
+
+Blueprint: Content/Blueprints/HR_Character_BP
+
+Onde configurar
+
+As configurações do sprint ficam dentro do HR_Character_BP (Character principal do projeto).
+
+----------------------------------------------------------------------------------------------------------------------
+Door Open System
+Localização / Arquivo
+
+Blueprint: Content/Blueprints/Others/Door_BP
+----------------------------------------------------------------------------------------------------------------------
+Footsteps System
+Áudio (Sound Cues)
+
+Content/Sounds/Footsteps/ — Sound Cues de passos para cada Surface.
+
+Superfícies (Project Settings)
+
+Project Settings → Engine → Physics — adicionar/editar Physical Surfaces.
+
+Physical Materials
+
+Content/Sounds/PhysicalMaterials/ — Physical Materials usados por cada Surface.
+
+Configuração no Character
+
+Content/Blueprints/HR_Character_BP — configuração/associação das Surfaces para tocar os sons de passos.
+----------------------------------------------------------------------------------------------------------------------
+Interact System
+Ativar interação em um Blueprint
+
+No Blueprint do item que você quer interagir:
+
+Abra Class Settings
+
+Em Details → Interfaces → Implemented Interfaces, adicione: HR_InteractInterface
+
+Evento de interação
+
+No próprio Blueprint do item, adicione o evento Event Interact (é o evento chamado pela interface).
+
+Exemplo
+
+Content/Blueprints/Others/Test_BP — exemplo de implementação do sistema de interação.
+
+Configurações gerais
+
+Content/Blueprints/HR_Character_BP — configurações principais do Interact System.
+----------------------------------------------------------------------------------------------------------------------
+Health System
+Blueprint principal (lógica)
+
+Content/Blueprints/BPC_Health — configura:
+
+lógica de Health
+
+Max Health (vida máxima)
+
+lógica de dano e cura
+
+lógica/widget de morte
+
+Widget de morte
+
+Content/Widgets/Dead-WG — widget do efeito de morrer.
+
+Exemplos (dano e cura)
+
+Content/Blueprints/Others/DamageFloor_BP — exemplo de dano.
+
+Content/Blueprints/Others/Heal25Damage — exemplo de cura.
+----------------------------------------------------------------------------------------------------------------------
+Flashlight System
+Configuração no Character
+
+Content/Blueprints/HR_Character_BP — configuração da lanterna (ativação) e posição no personagem.
+
+Blueprint da lanterna
+
+Content/Blueprints/Others/Flashlight_BP — configuração de mesh e demais ajustes do ator da lanterna.
+----------------------------------------------------------------------------------------------------------------------
+Grab Boxes System
+Lógica do sistema
+
+Content/Blueprints/HR_Character_BP — contém a lógica de pegar/segurar as caixas (grab).
+
+Tornar um objeto “pegável”
+
+Coloque uma Static Mesh (ou um ator com mesh/box) na cena.
+
+No Details do componente, ative Simulate Physics.
+----------------------------------------------------------------------------------------------------------------------
+Screen Tips System
+Widgets (dicas)
+
+Content/Widgets/Tips/ — widgets das dicas exibidas na tela.
+
+Blueprint de ativação
+
+Content/Blueprints/Others/TipsBP — blueprint responsável por ativar/exibir as dicas na tela.
+----------------------------------------------------------------------------------------------------------------------
+Monster IA System
+Localização / Configuração
+
+Content/Blueprints/Others/Monster — contém a configuração de mesh e a lógica do Monster AI.
